@@ -1,0 +1,57 @@
+"Phrases"
+{
+    "Damage info"
+    {
+        "ru"    "{1} {2}{3}{default}, урон {olive}{4}{default}, в {olive}{5}{default}, расстояние {olive}{6}{default}, оружие {olive}{7}"
+    }
+
+    "Target"
+    {
+        "ru"    "Цель"
+    }
+
+    "Attacker"
+    {
+        "ru"    "Атакующий"
+    }
+
+    "Body"
+    {
+        "ru"    "Тело"
+    }
+
+    "Head"
+    {
+        "ru"    "Голову"
+    }
+
+    "Chest"
+    {
+        "ru"    "Грудь"
+    }
+
+    "Stomach"
+    {
+        "ru"    "Желудок"
+    }
+
+    "Left arm"
+    {
+        "ru"    "Левую руку"
+    }
+
+    "Right arm"
+    {
+        "ru"    "Правую руку"
+    }
+
+    "Left leg"
+    {
+        "ru"    "Левую ногу"
+    }
+
+    "Right leg"
+    {
+        "ru"    "Правую ногу"
+    }
+}
