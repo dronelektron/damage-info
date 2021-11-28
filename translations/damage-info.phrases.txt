@@ -1,0 +1,58 @@
+"Phrases"
+{
+    "Damage info"
+    {
+        "#format"   "{1:t},{2:s},{3:N},{4:.2f},{5:t},{6:.2f},{7:s}"
+        "en"    "{1} {2}{3}{default}, damage {olive}{4}{default}, to {olive}{5}{default}, distance {olive}{6}{default}, weapon {olive}{7}"
+    }
+
+    "Target"
+    {
+        "en"    "Target"
+    }
+
+    "Attacker"
+    {
+        "en"    "Attacker"
+    }
+
+    "Body"
+    {
+        "en"    "Body"
+    }
+
+    "Head"
+    {
+        "en"    "Head"
+    }
+
+    "Chest"
+    {
+        "en"    "Chest"
+    }
+
+    "Stomach"
+    {
+        "en"    "Stomach"
+    }
+
+    "Left arm"
+    {
+        "en"    "Left arm"
+    }
+
+    "Right arm"
+    {
+        "en"    "Right arm"
+    }
+
+    "Left leg"
+    {
+        "en"    "Left leg"
+    }
+
+    "Right leg"
+    {
+        "en"    "Right leg"
+    }
+}
