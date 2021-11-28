@@ -2,7 +2,7 @@
 {
     "Damage info"
     {
-        "ru"    "{1} {2}{3}{default}, урон {olive}{4}{default}, в {olive}{5}{default}, расстояние {olive}{6}{default}, оружие {olive}{7}"
+        "ru"    "{1} {2}{3}{default}, урон {olive}{4}{default}, в {olive}{5}{default}, расстояние {olive}{6}м{default}, оружие {olive}{7}"
     }
 
     "Target"

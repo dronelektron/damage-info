@@ -3,7 +3,7 @@
     "Damage info"
     {
         "#format"   "{1:t},{2:s},{3:N},{4:.2f},{5:t},{6:.2f},{7:s}"
-        "en"    "{1} {2}{3}{default}, damage {olive}{4}{default}, to {olive}{5}{default}, distance {olive}{6}{default}, weapon {olive}{7}"
+        "en"    "{1} {2}{3}{default}, damage {olive}{4}{default}, to {olive}{5}{default}, distance {olive}{6}m{default}, weapon {olive}{7}"
     }
 
     "Target"
