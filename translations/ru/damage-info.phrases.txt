@@ -1,18 +1,23 @@
 "Phrases"
 {
-    "Damage info"
+    "Damage info in chat"
     {
-        "ru"    "{1} {2}{3}{default}, урон {olive}{4}{default}, в {olive}{5}{default}, расстояние {olive}{6}м{default}, оружие {olive}{7}"
+        "ru"    "{1}, {2} {3} хп, {4} м"
+    }
+
+    "Damage info on screen"
+    {
+        "ru"    "{1} хп"
     }
 
     "Target"
     {
-        "ru"    "Цель"
+        "ru"    "Цель: {1}"
     }
 
     "Attacker"
     {
-        "ru"    "Атакующий"
+        "ru"    "{olive}Атакующий: {1}{default}"
     }
 
     "Body"
@@ -22,7 +27,7 @@
 
     "Head"
     {
-        "ru"    "Голову"
+        "ru"    "Голова"
     }
 
     "Chest"
@@ -37,21 +42,46 @@
 
     "Left arm"
     {
-        "ru"    "Левую руку"
+        "ru"    "Левая рука"
     }
 
     "Right arm"
     {
-        "ru"    "Правую руку"
+        "ru"    "Правая рука"
     }
 
     "Left leg"
     {
-        "ru"    "Левую ногу"
+        "ru"    "Левая нога"
     }
 
     "Right leg"
     {
-        "ru"    "Правую ногу"
+        "ru"    "Правая нога"
+    }
+
+    "Show damage"
+    {
+        "ru"    "Показ урона"
+    }
+
+    "Show damage in chat"
+    {
+        "ru"    "В чате [{1}]"
+    }
+
+    "Show damage on screen"
+    {
+        "ru"    "На экране [{1}]"
+    }
+
+    "Enabled"
+    {
+        "ru"    "Включено"
+    }
+
+    "Disabled"
+    {
+        "ru"    "Выключено"
     }
 }
