@@ -204,6 +204,10 @@ public Action Event_PlayerHurt(Event event, const char[] name, bool dontBroadcas
         PrintDamageInfoOnScreen(attacker, damage);
     }
 
+    if (damage < 1.0) {
+        LogMessage("Unusual damage %f, victim %N, attacker %N, hit group %d, distance %f", damage, victim, attacker, hitGroup, distance);
+    }
+
     return Plugin_Handled;
 }
 
