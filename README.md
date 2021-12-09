@@ -1,12 +1,18 @@
 # Damage info
 
-Shows damage information in chat:
+Shows damage information in chat and on screen (only damage amount):
 
 * Player name
-* Damage amount
 * Part of the body
+* Damage amount
 * Distance
-* Weapon
+
+### Client Preferences
+
+The player can enable or disable the following settings:
+
+* Show damage in chat
+* Show damage on the screen
 
 ### Supported Games
 
