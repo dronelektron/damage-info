@@ -183,7 +183,7 @@ public Action Event_PlayerHurt(Event event, const char[] name, bool dontBroadcas
         return Plugin_Handled;
     }
 
-    float damage = event.GetFloat("damage");
+    int damage = event.GetInt("damage");
     float victimPos[VECTOR_SIZE];
     float attackerPos[VECTOR_SIZE];
 
@@ -204,23 +204,15 @@ public Action Event_PlayerHurt(Event event, const char[] name, bool dontBroadcas
         PrintDamageInfoOnScreen(attacker, damage);
     }
 
-    if (damage < 1.0) {
-        LogMessage("Unusual damage %f, victim %N, attacker %N, hit group %d, distance %f", damage, victim, attacker, hitGroup, distance);
-    }
-
     return Plugin_Handled;
 }
 
-void PrintDamageInfoInChat(int victim, int attacker, char[] prefix, char[] hitGroup, float damage, float distance) {
-    int intDamage = RoundToNearest(damage);
-
-    CPrintToChat(victim, "%t", "Damage info in chat", prefix, attacker, hitGroup, intDamage, distance);
+void PrintDamageInfoInChat(int victim, int attacker, char[] prefix, char[] hitGroup, int damage, float distance) {
+    CPrintToChat(victim, "%t", "Damage info in chat", prefix, attacker, hitGroup, damage, distance);
 }
 
-void PrintDamageInfoOnScreen(int attacker, float damage) {
-    int intDamage = RoundToNearest(damage);
-
-    PrintCenterText(attacker, "%t", "Damage info on screen", intDamage);
+void PrintDamageInfoOnScreen(int attacker, int damage) {
+    PrintCenterText(attacker, "%t", "Damage info on screen", damage);
 }
 
 bool IsPluginEnabled() {
