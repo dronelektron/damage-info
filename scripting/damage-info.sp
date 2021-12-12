@@ -50,6 +50,9 @@ Handle g_cookieShowDamageOnScreen = null;
 bool g_showDamageInChat[MAXPLAYERS + 1];
 bool g_showDamageOnScreen[MAXPLAYERS + 1];
 
+int g_lastDamage[MAXPLAYERS + 1];
+int g_lastHitGroup[MAXPLAYERS + 1];
+
 public void OnPluginStart() {
     g_pluginEnabled = CreateConVar("sm_damageinfo_show", "1", "Enable (1) or disable (0) damage information");
     g_cookieShowDamageInChat = RegClientCookie("damageinfo_show_in_chat", "Show damage info in chat", CookieAccess_Private);
@@ -58,6 +61,7 @@ public void OnPluginStart() {
     SetCookieMenuItem(MenuHandler_ShowDamage, 0, "Show damage info");
     CookiesLateLoad();
     HookEvent("player_hurt", Event_PlayerHurt);
+    HookEvent("player_death", Event_PlayerDeath);
     LoadTranslations("damage-info.phrases");
     AutoExecConfig(true, "damage-info");
 }
@@ -159,15 +163,15 @@ void SetShowDamageOnScreen(int client, bool show) {
     g_showDamageOnScreen[client] = show;
 }
 
-public Action Event_PlayerHurt(Event event, const char[] name, bool dontBroadcast) {
+public void Event_PlayerHurt(Event event, const char[] name, bool dontBroadcast) {
     if (!IsPluginEnabled()) {
-        return Plugin_Handled;
+        return;
     }
 
     int hitGroup = event.GetInt("hitgroup");
 
     if (hitGroup > HIT_GROUP_RIGHT_LEG) {
-        return Plugin_Handled;
+        return;
     }
 
     int victimId = event.GetInt("userid");
@@ -176,14 +180,39 @@ public Action Event_PlayerHurt(Event event, const char[] name, bool dontBroadcas
     int attacker = GetClientOfUserId(attackerId);
 
     if (victim == 0 || attacker == 0) {
-        return Plugin_Handled;
+        return;
     }
 
     if (victim == attacker) {
-        return Plugin_Handled;
+        return;
     }
 
     int damage = event.GetInt("damage");
+
+    g_lastDamage[victim] = damage;
+    g_lastHitGroup[victim] = hitGroup;
+
+    if (damage == 0) {
+        return;
+    }
+
+    ShowDamageInfo(victim, attacker);
+}
+
+public void Event_PlayerDeath(Event event, const char[] name, bool dontBroadcast) {
+    int victimId = event.GetInt("userid");
+    int victim = GetClientOfUserId(victimId);
+    int attackerId = event.GetInt("attacker");
+    int attacker = GetClientOfUserId(attackerId);
+
+    if (victim == 0 || attacker == 0 || g_lastDamage[victim] > 0) {
+        return;
+    }
+
+    ShowDamageInfo(victim, attacker);
+}
+
+void ShowDamageInfo(int victim, int attacker) {
     float victimPos[VECTOR_SIZE];
     float attackerPos[VECTOR_SIZE];
 
@@ -191,6 +220,8 @@ public Action Event_PlayerHurt(Event event, const char[] name, bool dontBroadcas
     GetClientAbsOrigin(attacker, attackerPos);
 
     float distance = GetVectorDistance(victimPos, attackerPos, false) * METERS_PER_UNIT;
+    int damage = max(g_lastDamage[victim], 1);
+    int hitGroup = g_lastHitGroup[victim];
 
     if (g_showDamageInChat[victim]) {
         PrintDamageInfoInChat(victim, attacker, "Attacker", g_hitGroups[hitGroup], damage, distance);
@@ -203,8 +234,10 @@ public Action Event_PlayerHurt(Event event, const char[] name, bool dontBroadcas
     if (g_showDamageOnScreen[attacker]) {
         PrintDamageInfoOnScreen(attacker, damage);
     }
+}
 
-    return Plugin_Handled;
+int max(int a, int b) {
+    return a > b ? a : b;
 }
 
 void PrintDamageInfoInChat(int victim, int attacker, char[] prefix, char[] hitGroup, int damage, float distance) {
