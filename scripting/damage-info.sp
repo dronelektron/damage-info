@@ -178,21 +178,12 @@ public void Event_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
     int victim = GetClientOfUserId(victimId);
     int attackerId = event.GetInt("attacker");
     int attacker = GetClientOfUserId(attackerId);
-
-    if (victim == 0 || attacker == 0) {
-        return;
-    }
-
-    if (victim == attacker) {
-        return;
-    }
-
     int damage = event.GetInt("damage");
 
     g_lastDamage[victim] = damage;
     g_lastHitGroup[victim] = hitGroup;
 
-    if (damage == 0) {
+    if (victim == 0 || attacker == 0 || damage == 0) {
         return;
     }
 
@@ -213,6 +204,10 @@ public void Event_PlayerDeath(Event event, const char[] name, bool dontBroadcast
 }
 
 void ShowDamageInfo(int victim, int attacker) {
+    if (victim == attacker) {
+        return;
+    }
+
     float victimPos[VECTOR_SIZE];
     float attackerPos[VECTOR_SIZE];
 
