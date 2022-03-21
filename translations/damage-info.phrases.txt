@@ -9,7 +9,7 @@
     "Damage info on screen"
     {
         "#format"   "{1:d}"
-        "en"    "{1} hp"
+        "en"    "- {1} hp"
     }
 
     "Target"

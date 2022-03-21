@@ -7,7 +7,7 @@
 
     "Damage info on screen"
     {
-        "ru"    "{1} хп"
+        "ru"    "- {1} хп"
     }
 
     "Target"
