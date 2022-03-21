@@ -27,7 +27,7 @@ public Plugin myinfo = {
     name = "Damage info",
     author = "Dron-elektron",
     description = "Shows damage information in chat and on screen",
-    version = "1.0.1",
+    version = "1.0.2",
     url = ""
 }
 
