@@ -72,13 +72,13 @@
     "Show damage in chat"
     {
         "#format"   "{1:T}"
-        "en"    "In chat [{1}]"
+        "en"    "In chat [ {1} ]"
     }
 
     "Show damage on screen"
     {
         "#format"   "{1:T}"
-        "en"    "On screen [{1}]"
+        "en"    "On screen [ {1} ]"
     }
 
     "Enabled"
