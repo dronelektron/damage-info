@@ -67,12 +67,12 @@
 
     "Show damage in chat"
     {
-        "ru"    "В чате [{1}]"
+        "ru"    "В чате [ {1} ]"
     }
 
     "Show damage on screen"
     {
-        "ru"    "На экране [{1}]"
+        "ru"    "На экране [ {1} ]"
     }
 
     "Enabled"
