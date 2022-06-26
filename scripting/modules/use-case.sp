@@ -2,7 +2,7 @@ static int g_lastDamage[MAXPLAYERS + 1];
 static int g_lastHitGroup[MAXPLAYERS + 1];
 
 void UseCase_PlayerHurt(int victim, int attacker, int hitGroup, int damage) {
-    if (!Variable_IsPluginEnabled() || hitGroup > HIT_GROUP_RIGHT_LEG) {
+    if (!Variable_IsPluginEnabled() || hitGroup > HIT_GROUP_RIGHT_LEG || attacker == 0) {
         return;
     }
 
