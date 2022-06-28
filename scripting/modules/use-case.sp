@@ -17,7 +17,7 @@ void UseCase_PlayerHurt(int victim, int attacker, int hitGroup, int damage) {
 }
 
 void UseCase_PlayerDeath(int victim, int attacker) {
-    if (!Variable_IsPluginEnabled() || g_lastDamage[victim] > 0) {
+    if (!Variable_IsPluginEnabled() || g_lastDamage[victim] > 0 || attacker == 0) {
         return;
     }
 
