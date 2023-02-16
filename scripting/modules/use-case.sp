@@ -1,8 +1,11 @@
+static char g_targetPrefix[][] = {"Target", "Target (ally)"};
+static char g_attackerPrefix[][] = {"Attacker", "Attacker (ally)"};
+
 static int g_lastDamage[MAXPLAYERS + 1];
 static int g_lastHitGroup[MAXPLAYERS + 1];
 
 void UseCase_PlayerHurt(int victim, int attacker, int hitGroup, int damage) {
-    if (!Variable_IsPluginEnabled() || hitGroup > HIT_GROUP_RIGHT_LEG || attacker == 0) {
+    if (!Variable_IsPluginEnabled() || hitGroup > HIT_GROUP_RIGHT_LEG || attacker == WORLD) {
         return;
     }
 
@@ -17,7 +20,7 @@ void UseCase_PlayerHurt(int victim, int attacker, int hitGroup, int damage) {
 }
 
 void UseCase_PlayerDeath(int victim, int attacker) {
-    if (!Variable_IsPluginEnabled() || g_lastDamage[victim] > 0 || attacker == 0) {
+    if (!Variable_IsPluginEnabled() || g_lastDamage[victim] > 0 || attacker == WORLD) {
         return;
     }
 
@@ -33,15 +36,26 @@ void UseCase_ShowDamageInfo(int victim, int attacker) {
     int damage = Math_Max(g_lastDamage[victim], 1);
     int hitGroup = g_lastHitGroup[victim];
 
-    if (Preferences_IsShowDamageInChat(victim)) {
-        MessagePrint_DamageInfoInChat(victim, attacker, "Attacker", hitGroup, damage, distance);
+    if (Cookie_ShowDamage(victim, MessageSource_Chat)) {
+        int prefixIndex = UseCase_GetPrefixIndex(victim, attacker);
+
+        Message_DamageInfoInChat(victim, attacker, g_attackerPrefix[prefixIndex], hitGroup, damage, distance);
     }
 
-    if (Preferences_IsShowDamageInChat(attacker)) {
-        MessagePrint_DamageInfoInChat(attacker, victim, "Target", hitGroup, damage, distance);
+    if (Cookie_ShowDamage(attacker, MessageSource_Chat)) {
+        int prefixIndex = UseCase_GetPrefixIndex(attacker, victim);
+
+        Message_DamageInfoInChat(attacker, victim, g_targetPrefix[prefixIndex], hitGroup, damage, distance);
     }
 
-    if (Preferences_IsShowDamageOnScreen(attacker)) {
-        MessagePrint_DamageInfoOnScreen(attacker, damage);
+    if (Cookie_ShowDamage(attacker, MessageSource_Screen)) {
+        Message_DamageInfoOnScreen(attacker, damage);
     }
+}
+
+int UseCase_GetPrefixIndex(int client1, int client2) {
+    int team1 = GetClientTeam(client1);
+    int team2 = GetClientTeam(client2);
+
+    return team1 == team2 ? PREFIX_ALLY : PREFIX_ENEMY;
 }
