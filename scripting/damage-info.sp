@@ -42,7 +42,7 @@ public void OnClientConnected(int client) {
 }
 
 public void OnClientCookiesCached(int client) {
-    Preferences_Refresh(client);
+    Preferences_Load(client);
 }
 
 public void Event_PlayerHurt(Event event, const char[] name, bool dontBroadcast) {
