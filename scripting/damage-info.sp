@@ -3,16 +3,16 @@
 
 #include "morecolors"
 
+#include "di/cookie"
 #include "di/math"
 #include "di/menu"
-#include "di/preferences"
 #include "di/use-case"
 
 #include "modules/console-variable.sp"
+#include "modules/cookie.sp"
 #include "modules/math.sp"
 #include "modules/menu.sp"
 #include "modules/message.sp"
-#include "modules/preferences.sp"
 #include "modules/use-case.sp"
 
 public Plugin myinfo = {
@@ -25,7 +25,7 @@ public Plugin myinfo = {
 
 public void OnPluginStart() {
     Variable_Create();
-    Preferences_Create();
+    Cookie_Create();
     Menu_AddToPreferences();
     CookiesLateLoad();
     HookEvent("player_hurt", Event_PlayerHurt);
@@ -35,11 +35,11 @@ public void OnPluginStart() {
 }
 
 public void OnClientConnected(int client) {
-    Preferences_Reset(client);
+    Cookie_Reset(client);
 }
 
 public void OnClientCookiesCached(int client) {
-    Preferences_Load(client);
+    Cookie_Load(client);
 }
 
 public void Event_PlayerHurt(Event event, const char[] name, bool dontBroadcast) {

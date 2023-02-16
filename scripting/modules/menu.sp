@@ -15,8 +15,8 @@ public void Menu_Settings(int client) {
 
     menu.SetTitle("%T", SHOW_DAMAGE, client);
 
-    Menu_AddBoolItem(menu, ITEM_SHOW_DAMAGE_IN_CHAT, client, Preferences_IsShowDamage(client, DamageMessage_Chat));
-    Menu_AddBoolItem(menu, ITEM_SHOW_DAMAGE_ON_SCREEN, client, Preferences_IsShowDamage(client, DamageMessage_Screen));
+    Menu_AddBoolItem(menu, ITEM_SHOW_DAMAGE_IN_CHAT, client, Cookie_ShowDamage(client, DamageMessage_Chat));
+    Menu_AddBoolItem(menu, ITEM_SHOW_DAMAGE_ON_SCREEN, client, Cookie_ShowDamage(client, DamageMessage_Screen));
 
     menu.ExitBackButton = true;
     menu.Display(client, MENU_TIME_FOREVER);
@@ -29,9 +29,9 @@ public int MenuHandler_Settings(Menu menu, MenuAction action, int param1, int pa
         menu.GetItem(param2, info, sizeof(info));
 
         if (StrEqual(info, ITEM_SHOW_DAMAGE_IN_CHAT)) {
-            Preferences_ToggleValue(param1, DamageMessage_Chat);
+            Cookie_ToggleValue(param1, DamageMessage_Chat);
         } else if (StrEqual(info, ITEM_SHOW_DAMAGE_ON_SCREEN)) {
-            Preferences_ToggleValue(param1, DamageMessage_Screen);
+            Cookie_ToggleValue(param1, DamageMessage_Screen);
         }
 
         Menu_Settings(param1);

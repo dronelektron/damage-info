@@ -36,19 +36,19 @@ void UseCase_ShowDamageInfo(int victim, int attacker) {
     int damage = Math_Max(g_lastDamage[victim], 1);
     int hitGroup = g_lastHitGroup[victim];
 
-    if (Preferences_IsShowDamage(victim, DamageMessage_Chat)) {
+    if (Cookie_ShowDamage(victim, DamageMessage_Chat)) {
         int prefixIndex = UseCase_GetPrefixIndex(victim, attacker);
 
         Message_DamageInfoInChat(victim, attacker, g_attackerPrefix[prefixIndex], hitGroup, damage, distance);
     }
 
-    if (Preferences_IsShowDamage(attacker, DamageMessage_Chat)) {
+    if (Cookie_ShowDamage(attacker, DamageMessage_Chat)) {
         int prefixIndex = UseCase_GetPrefixIndex(attacker, victim);
 
         Message_DamageInfoInChat(attacker, victim, g_targetPrefix[prefixIndex], hitGroup, damage, distance);
     }
 
-    if (Preferences_IsShowDamage(attacker, DamageMessage_Screen)) {
+    if (Cookie_ShowDamage(attacker, DamageMessage_Screen)) {
         Message_DamageInfoOnScreen(attacker, damage);
     }
 }
