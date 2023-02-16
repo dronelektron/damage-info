@@ -33,7 +33,9 @@ bool Preferences_IsShowDamage(int client, DamageMessage damageMessage) {
 }
 
 void Preferences_ToggleValue(int client, DamageMessage damageMessage) {
+    Handle cookie = g_showDamageCookie[damageMessage];
+
     g_showDamage[client][damageMessage] = !g_showDamage[client][damageMessage];
 
-    SetClientCookie(client, g_showDamageCookie[damageMessage], g_showDamage[client][damageMessage] ? VALUE_ENABLED : VALUE_DISABLED);
+    SetClientCookie(client, cookie, g_showDamage[client][damageMessage] ? VALUE_ENABLED : VALUE_DISABLED);
 }
