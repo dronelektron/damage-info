@@ -15,9 +15,19 @@
         "ru"    "Цель: {1}"
     }
 
+    "Target (ally)"
+    {
+        "ru"    "{orange}(Свой) {default}Цель: {1}"
+    }
+
     "Attacker"
     {
         "ru"    "{olive}Атакующий: {1}{default}"
+    }
+
+    "Attacker (ally)"
+    {
+        "ru"    "{orange}(Свой) {olive}Атакующий: {1}{default}"
     }
 
     "Body"

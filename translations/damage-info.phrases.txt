@@ -18,10 +18,22 @@
         "en"    "Target: {1}"
     }
 
+    "Target (ally)"
+    {
+        "#format"   "{1:N}"
+        "en"    "{orange}(Ally) {default}Target: {1}"
+    }
+
     "Attacker"
     {
         "#format"   "{1:N}"
         "en"    "{olive}Attacker: {1}{default}"
+    }
+
+    "Attacker (ally)"
+    {
+        "#format"   "{1:N}"
+        "en"    "{orange}(Ally) {olive}Attacker: {1}{default}"
     }
 
     "Body"
