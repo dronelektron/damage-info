@@ -34,14 +34,14 @@ void UseCase_ShowDamageInfo(int victim, int attacker) {
     int hitGroup = g_lastHitGroup[victim];
 
     if (Preferences_IsShowDamageInChat(victim)) {
-        MessagePrint_DamageInfoInChat(victim, attacker, "Attacker", hitGroup, damage, distance);
+        Message_DamageInfoInChat(victim, attacker, "Attacker", hitGroup, damage, distance);
     }
 
     if (Preferences_IsShowDamageInChat(attacker)) {
-        MessagePrint_DamageInfoInChat(attacker, victim, "Target", hitGroup, damage, distance);
+        Message_DamageInfoInChat(attacker, victim, "Target", hitGroup, damage, distance);
     }
 
     if (Preferences_IsShowDamageOnScreen(attacker)) {
-        MessagePrint_DamageInfoOnScreen(attacker, damage);
+        Message_DamageInfoOnScreen(attacker, damage);
     }
 }
