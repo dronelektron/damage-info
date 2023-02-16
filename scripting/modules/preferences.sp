@@ -1,52 +1,39 @@
-static Handle g_cookieShowDamageInChat = null;
-static Handle g_cookieShowDamageOnScreen = null;
-
-static bool g_showDamageInChat[MAXPLAYERS + 1];
-static bool g_showDamageOnScreen[MAXPLAYERS + 1];
+static Handle g_showDamageCookie[DamageMessage_Size];
+static bool g_showDamage[MAXPLAYERS + 1][DamageMessage_Size];
 
 void Preferences_Create() {
-    g_cookieShowDamageInChat = RegClientCookie("damageinfo_show_in_chat", "Show damage info in chat", CookieAccess_Private);
-    g_cookieShowDamageOnScreen = RegClientCookie("damageinfo_show_on_screen", "Show damage info on screen", CookieAccess_Private);
+    g_showDamageCookie[DamageMessage_Chat] = RegClientCookie("damageinfo_show_in_chat", "Show damage info in chat", CookieAccess_Private);
+    g_showDamageCookie[DamageMessage_Screen] = RegClientCookie("damageinfo_show_on_screen", "Show damage info on screen", CookieAccess_Private);
 }
 
 void Preferences_Reset(int client) {
-    g_showDamageInChat[client] = true;
-    g_showDamageOnScreen[client] = true;
+    g_showDamage[client][DamageMessage_Chat] = true;
+    g_showDamage[client][DamageMessage_Screen] = true;
 }
 
 void Preferences_Load(int client) {
-    Preferences_LoadCookie(client, g_cookieShowDamageInChat, g_showDamageInChat);
-    Preferences_LoadCookie(client, g_cookieShowDamageOnScreen, g_showDamageOnScreen);
+    Preferences_LoadCookie(client, DamageMessage_Chat);
+    Preferences_LoadCookie(client, DamageMessage_Screen);
 }
 
-void Preferences_LoadCookie(int client, Handle cookie, bool[] value) {
+void Preferences_LoadCookie(int client, DamageMessage damageMessage) {
     char cookieValue[COOKIE_VALUE_SIZE];
 
-    GetClientCookie(client, cookie, cookieValue, sizeof(cookieValue));
+    GetClientCookie(client, g_showDamageCookie[damageMessage], cookieValue, sizeof(cookieValue));
 
     if (cookieValue[0] != NULL_CHARACTER) {
-        value[client] = StrEqual(cookieValue, VALUE_ENABLED);
+        bool enabled = StrEqual(cookieValue, VALUE_ENABLED);
+
+        g_showDamage[client][damageMessage] = enabled;
     }
 }
 
-bool Preferences_IsShowDamageInChat(int client) {
-    return g_showDamageInChat[client];
+bool Preferences_IsShowDamage(int client, DamageMessage damageMessage) {
+    return g_showDamage[client][damageMessage];
 }
 
-void Preferences_ToggleShowDamageInChat(int client) {
-    Preferences_ToggleCookieValue(client, g_cookieShowDamageInChat, g_showDamageInChat);
-}
+void Preferences_ToggleValue(int client, DamageMessage damageMessage) {
+    g_showDamage[client][damageMessage] = !g_showDamage[client][damageMessage];
 
-bool Preferences_IsShowDamageOnScreen(int client) {
-    return g_showDamageOnScreen[client];
-}
-
-void Preferences_ToggleShowDamageOnScreen(int client) {
-    Preferences_ToggleCookieValue(client, g_cookieShowDamageOnScreen, g_showDamageOnScreen);
-}
-
-void Preferences_ToggleCookieValue(int client, Handle cookie, bool[] value) {
-    value[client] = !value[client];
-
-    SetClientCookie(client, cookie, value[client] ? VALUE_ENABLED : VALUE_DISABLED);
+    SetClientCookie(client, g_showDamageCookie[damageMessage], g_showDamage[client][damageMessage] ? VALUE_ENABLED : VALUE_DISABLED);
 }
