@@ -12,22 +12,22 @@
 
     "Target"
     {
-        "ru"    "Цель: {1}"
+        "ru"    "Цель: {white}{1}{default}"
     }
 
     "Target (ally)"
     {
-        "ru"    "{orange}(Свой) {default}Цель: {1}"
+        "ru"    "{orange}(Свой) {default}Цель: {white}{1}{default}"
     }
 
     "Attacker"
     {
-        "ru"    "{olive}Атакующий: {1}{default}"
+        "ru"    "{olive}Атакующий: {white}{1}{default}"
     }
 
     "Attacker (ally)"
     {
-        "ru"    "{orange}(Свой) {olive}Атакующий: {1}{default}"
+        "ru"    "{orange}(Свой) {olive}Атакующий: {white}{1}{default}"
     }
 
     "Body"
