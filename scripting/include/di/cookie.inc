@@ -9,9 +9,9 @@
 #define VALUE_ENABLED "1"
 #define VALUE_DISABLED "0"
 
-enum DamageMessage {
-    DamageMessage_Chat,
-    DamageMessage_Screen,
+enum MessageSource {
+    MessageSource_Chat,
+    MessageSource_Screen,
 
-    DamageMessage_Size
+    MessageSource_Size
 };
