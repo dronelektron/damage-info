@@ -2,7 +2,7 @@ static int g_lastDamage[MAXPLAYERS + 1];
 static int g_lastHitGroup[MAXPLAYERS + 1];
 
 void UseCase_PlayerHurt(int victim, int attacker, int hitGroup, int damage) {
-    if (!Variable_IsPluginEnabled() || hitGroup > HIT_GROUP_RIGHT_LEG || attacker == 0) {
+    if (!Variable_IsPluginEnabled() || hitGroup > HIT_GROUP_RIGHT_LEG || attacker == WORLD) {
         return;
     }
 
@@ -17,7 +17,7 @@ void UseCase_PlayerHurt(int victim, int attacker, int hitGroup, int damage) {
 }
 
 void UseCase_PlayerDeath(int victim, int attacker) {
-    if (!Variable_IsPluginEnabled() || g_lastDamage[victim] > 0 || attacker == 0) {
+    if (!Variable_IsPluginEnabled() || g_lastDamage[victim] > 0 || attacker == WORLD) {
         return;
     }
 
