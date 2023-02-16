@@ -3,9 +3,6 @@
 
 #include "morecolors"
 
-#pragma semicolon 1
-#pragma newdecls required
-
 #include "di/math"
 #include "di/menu"
 #include "di/preferences"
