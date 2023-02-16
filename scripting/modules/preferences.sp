@@ -10,8 +10,8 @@ void Preferences_Create() {
 }
 
 void Preferences_Reset(int client) {
-    g_showDamageInChat[client] = SHOW_DAMAGE_IN_CHAT_DEFAULT_VALUE;
-    g_showDamageOnScreen[client] = SHOW_DAMAGE_ON_SCREEN_DEFAULT_VALUE;
+    g_showDamageInChat[client] = true;
+    g_showDamageOnScreen[client] = true;
 }
 
 void Preferences_Load(int client) {
