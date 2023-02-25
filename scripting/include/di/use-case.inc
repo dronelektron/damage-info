@@ -6,5 +6,8 @@
 #define HIT_GROUP_RIGHT_LEG 7
 #define WORLD 0
 
-#define PREFIX_ENEMY 0
-#define PREFIX_ALLY 1
+#define ENEMY 0
+#define ALLY 1
+
+#define TARGET 0
+#define ATTACKER 1

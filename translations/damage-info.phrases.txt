@@ -2,8 +2,8 @@
 {
     "Damage info in chat"
     {
-        "#format"   "{1:t},{2:t},{3:d},{4:.2f}"
-        "en"    "{1}, {2} {3} hp, {4} m"
+        "#format"   "{1:t},{2:t},{3:N},{4:t},{5:d},{6:.2f}"
+        "en"    "{1}{2}{white}{3}{default}, {4} {5} hp, {6} m"
     }
 
     "Damage info on screen"
@@ -12,28 +12,24 @@
         "en"    "- {1} hp"
     }
 
-    "Target"
+    "Enemy"
     {
-        "#format"   "{1:N}"
-        "en"    "{burlywood}Target: {white}{1}{default}"
+        "en"    ""
     }
 
-    "Target (ally)"
+    "Ally"
     {
-        "#format"   "{1:N}"
-        "en"    "{yellow}(Ally) {burlywood}Target: {white}{1}{default}"
+        "en"    "{yellow}(Ally) "
+    }
+
+    "Target"
+    {
+        "en"    "{burlywood}Target: "
     }
 
     "Attacker"
     {
-        "#format"   "{1:N}"
-        "en"    "{lightcoral}Attacker: {white}{1}{default}"
-    }
-
-    "Attacker (ally)"
-    {
-        "#format"   "{1:N}"
-        "en"    "{yellow}(Ally) {lightcoral}Attacker: {white}{1}{default}"
+        "en"    "{lightcoral}Attacker: "
     }
 
     "Body"
