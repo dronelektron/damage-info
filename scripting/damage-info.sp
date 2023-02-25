@@ -10,28 +10,30 @@
 
 #include "modules/console-variable.sp"
 #include "modules/cookie.sp"
+#include "modules/event.sp"
 #include "modules/math.sp"
 #include "modules/menu.sp"
 #include "modules/message.sp"
 #include "modules/use-case.sp"
 
+#define AUTO_CREATE_YES true
+
 public Plugin myinfo = {
     name = "Damage info",
     author = "Dron-elektron",
     description = "Shows damage information in chat and on screen",
-    version = "1.1.0",
+    version = "1.1.1",
     url = "https://github.com/dronelektron/damage-info"
 };
 
 public void OnPluginStart() {
     Variable_Create();
     Cookie_Create();
+    Event_Create();
     Menu_AddToPreferences();
     CookiesLateLoad();
-    HookEvent("player_hurt", Event_PlayerHurt);
-    HookEvent("player_death", Event_PlayerDeath);
     LoadTranslations("damage-info.phrases");
-    AutoExecConfig(true, "damage-info");
+    AutoExecConfig(AUTO_CREATE_YES, "damage-info");
 }
 
 public void OnClientConnected(int client) {
@@ -40,26 +42,6 @@ public void OnClientConnected(int client) {
 
 public void OnClientCookiesCached(int client) {
     Cookie_Load(client);
-}
-
-public void Event_PlayerHurt(Event event, const char[] name, bool dontBroadcast) {
-    int victimId = event.GetInt("userid");
-    int victim = GetClientOfUserId(victimId);
-    int attackerId = event.GetInt("attacker");
-    int attacker = GetClientOfUserId(attackerId);
-    int hitGroup = event.GetInt("hitgroup");
-    int damage = event.GetInt("damage");
-
-    UseCase_PlayerHurt(victim, attacker, hitGroup, damage);
-}
-
-public void Event_PlayerDeath(Event event, const char[] name, bool dontBroadcast) {
-    int victimId = event.GetInt("userid");
-    int victim = GetClientOfUserId(victimId);
-    int attackerId = event.GetInt("attacker");
-    int attacker = GetClientOfUserId(attackerId);
-
-    UseCase_PlayerDeath(victim, attacker);
 }
 
 void CookiesLateLoad() {

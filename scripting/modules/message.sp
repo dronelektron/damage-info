@@ -1,3 +1,13 @@
+static char g_enemyOrAlly[][] = {
+    "Enemy",
+    "Ally"
+};
+
+static char g_targetOrAttacker[][] = {
+    "Target",
+    "Attacker"
+};
+
 static char g_hitGroups[][] = {
     "Body",
     "Head",
@@ -9,8 +19,17 @@ static char g_hitGroups[][] = {
     "Right leg"
 };
 
-void Message_DamageInfoInChat(int victim, int attacker, char[] prefix, int hitGroup, int damage, float distance) {
-    CPrintToChat(victim, "%t", "Damage info in chat", prefix, attacker, g_hitGroups[hitGroup], damage, distance);
+void Message_DamageInfoInChat(int client1, int client2, int targetOrAttacker, int hitGroup, int damage, float distance) {
+    int enemyOrAlly = UseCase_GetEnemyOrAlly(client1, client2);
+
+    CPrintToChat(client1, "%t", "Damage info in chat",
+        g_enemyOrAlly[enemyOrAlly],
+        g_targetOrAttacker[targetOrAttacker],
+        client2,
+        g_hitGroups[hitGroup],
+        damage,
+        distance
+    );
 }
 
 void Message_DamageInfoOnScreen(int attacker, int damage) {

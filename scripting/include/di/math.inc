@@ -4,5 +4,5 @@
 #define _di_math_included
 
 #define VECTOR_SIZE 3
-#define METERS_PER_UNIT (2.54 / 100)
+#define UNITS_TO_METERS (0.75 * 2.54 / 100)
 #define SQUARED_NO false

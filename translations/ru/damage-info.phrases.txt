@@ -2,7 +2,7 @@
 {
     "Damage info in chat"
     {
-        "ru"    "{1}, {2} {3} хп, {4} м"
+        "ru"    "{1}{2}{white}{3}{default}, {4} {5} хп, {6} м"
     }
 
     "Damage info on screen"
@@ -10,24 +10,24 @@
         "ru"    "- {1} хп"
     }
 
-    "Target"
+   "Enemy"
     {
-        "ru"    "Цель: {white}{1}{default}"
+        "ru"    ""
     }
 
-    "Target (ally)"
+    "Ally"
     {
-        "ru"    "{orange}(Свой) {default}Цель: {white}{1}{default}"
+        "ru"    "{yellow}(Свой) "
+    }
+
+    "Target"
+    {
+        "ru"    "{burlywood}Цель: "
     }
 
     "Attacker"
     {
-        "ru"    "{olive}Атакующий: {white}{1}{default}"
-    }
-
-    "Attacker (ally)"
-    {
-        "ru"    "{orange}(Свой) {olive}Атакующий: {white}{1}{default}"
+        "ru"    "{lightcoral}Атакующий: "
     }
 
     "Body"

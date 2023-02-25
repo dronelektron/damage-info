@@ -5,7 +5,7 @@ float Math_CalculateDistance(int victim, int attacker) {
     GetClientAbsOrigin(victim, victimPos);
     GetClientAbsOrigin(attacker, attackerPos);
 
-    return GetVectorDistance(victimPos, attackerPos, SQUARED_NO) * METERS_PER_UNIT;
+    return GetVectorDistance(victimPos, attackerPos, SQUARED_NO) * UNITS_TO_METERS;
 }
 
 int Math_Max(int a, int b) {

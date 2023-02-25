@@ -1,6 +1,3 @@
-static char g_targetPrefix[][] = {"Target", "Target (ally)"};
-static char g_attackerPrefix[][] = {"Attacker", "Attacker (ally)"};
-
 static int g_lastDamage[MAXPLAYERS + 1];
 static int g_lastHitGroup[MAXPLAYERS + 1];
 
@@ -37,15 +34,11 @@ void UseCase_ShowDamageInfo(int victim, int attacker) {
     int hitGroup = g_lastHitGroup[victim];
 
     if (Cookie_ShowDamage(victim, MessageSource_Chat)) {
-        int prefixIndex = UseCase_GetPrefixIndex(victim, attacker);
-
-        Message_DamageInfoInChat(victim, attacker, g_attackerPrefix[prefixIndex], hitGroup, damage, distance);
+        Message_DamageInfoInChat(victim, attacker, ATTACKER, hitGroup, damage, distance);
     }
 
     if (Cookie_ShowDamage(attacker, MessageSource_Chat)) {
-        int prefixIndex = UseCase_GetPrefixIndex(attacker, victim);
-
-        Message_DamageInfoInChat(attacker, victim, g_targetPrefix[prefixIndex], hitGroup, damage, distance);
+        Message_DamageInfoInChat(attacker, victim, TARGET, hitGroup, damage, distance);
     }
 
     if (Cookie_ShowDamage(attacker, MessageSource_Screen)) {
@@ -53,9 +46,9 @@ void UseCase_ShowDamageInfo(int victim, int attacker) {
     }
 }
 
-int UseCase_GetPrefixIndex(int client1, int client2) {
+int UseCase_GetEnemyOrAlly(int client1, int client2) {
     int team1 = GetClientTeam(client1);
     int team2 = GetClientTeam(client2);
 
-    return team1 == team2 ? PREFIX_ALLY : PREFIX_ENEMY;
+    return team1 == team2 ? ALLY : ENEMY;
 }
