@@ -15,25 +15,25 @@
     "Target"
     {
         "#format"   "{1:N}"
-        "en"    "Target: {white}{1}{default}"
+        "en"    "{burlywood}Target: {white}{1}{default}"
     }
 
     "Target (ally)"
     {
         "#format"   "{1:N}"
-        "en"    "{orange}(Ally) {default}Target: {white}{1}{default}"
+        "en"    "{yellow}(Ally) {burlywood}Target: {white}{1}{default}"
     }
 
     "Attacker"
     {
         "#format"   "{1:N}"
-        "en"    "{olive}Attacker: {white}{1}{default}"
+        "en"    "{lightcoral}Attacker: {white}{1}{default}"
     }
 
     "Attacker (ally)"
     {
         "#format"   "{1:N}"
-        "en"    "{orange}(Ally) {olive}Attacker: {white}{1}{default}"
+        "en"    "{yellow}(Ally) {lightcoral}Attacker: {white}{1}{default}"
     }
 
     "Body"

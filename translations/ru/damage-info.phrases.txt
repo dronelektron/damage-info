@@ -12,22 +12,22 @@
 
     "Target"
     {
-        "ru"    "Цель: {white}{1}{default}"
+        "ru"    "{burlywood}Цель: {white}{1}{default}"
     }
 
     "Target (ally)"
     {
-        "ru"    "{orange}(Свой) {default}Цель: {white}{1}{default}"
+        "ru"    "{yellow}(Свой) {burlywood}Цель: {white}{1}{default}"
     }
 
     "Attacker"
     {
-        "ru"    "{olive}Атакующий: {white}{1}{default}"
+        "ru"    "{lightcoral}Атакующий: {white}{1}{default}"
     }
 
     "Attacker (ally)"
     {
-        "ru"    "{orange}(Свой) {olive}Атакующий: {white}{1}{default}"
+        "ru"    "{yellow}(Свой) {lightcoral}Атакующий: {white}{1}{default}"
     }
 
     "Body"
