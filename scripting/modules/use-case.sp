@@ -33,15 +33,15 @@ void UseCase_ShowDamageInfo(int victim, int attacker) {
     int damage = Math_Max(g_lastDamage[victim], 1);
     int hitGroup = g_lastHitGroup[victim];
 
-    if (Cookie_ShowDamage(victim, MessageSource_Chat)) {
+    if (Cookie_IsShowDamage(victim, MessageSource_Chat)) {
         Message_DamageInfoInChat(victim, attacker, ATTACKER, hitGroup, damage, distance);
     }
 
-    if (Cookie_ShowDamage(attacker, MessageSource_Chat)) {
+    if (Cookie_IsShowDamage(attacker, MessageSource_Chat)) {
         Message_DamageInfoInChat(attacker, victim, TARGET, hitGroup, damage, distance);
     }
 
-    if (Cookie_ShowDamage(attacker, MessageSource_Screen)) {
+    if (Cookie_IsShowDamage(attacker, MessageSource_Screen)) {
         Message_DamageInfoOnScreen(attacker, damage);
     }
 }

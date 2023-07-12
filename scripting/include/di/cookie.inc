@@ -3,11 +3,11 @@
 #endif
 #define _di_cookie_included
 
-#define COOKIE_VALUE_SIZE 2
 #define NULL_CHARACTER '\0'
 
-#define VALUE_ENABLED "1"
-#define VALUE_DISABLED "0"
+#define COOKIE_VALUE_ENABLED "1"
+#define COOKIE_VALUE_DISABLED "0"
+#define COOKIE_VALUE_SIZE 2
 
 enum MessageSource {
     MessageSource_Chat,
