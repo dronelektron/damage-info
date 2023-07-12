@@ -79,13 +79,13 @@
 
     "Show damage in chat"
     {
-        "#format"   "{1:T}"
+        "#format"   "{1:t}"
         "en"    "In chat [ {1} ]"
     }
 
     "Show damage on screen"
     {
-        "#format"   "{1:T}"
+        "#format"   "{1:t}"
         "en"    "On screen [ {1} ]"
     }
 

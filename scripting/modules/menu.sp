@@ -15,8 +15,8 @@ public void Menu_Settings(int client) {
 
     menu.SetTitle("%T", SHOW_DAMAGE, client);
 
-    Menu_AddBoolItem(menu, ITEM_SHOW_DAMAGE_IN_CHAT, client, Cookie_ShowDamage(client, MessageSource_Chat));
-    Menu_AddBoolItem(menu, ITEM_SHOW_DAMAGE_ON_SCREEN, client, Cookie_ShowDamage(client, MessageSource_Screen));
+    Menu_AddShowDamageItem(menu, client, ITEM_SHOW_DAMAGE_IN_CHAT, Cookie_IsShowDamage(client, MessageSource_Chat));
+    Menu_AddShowDamageItem(menu, client, ITEM_SHOW_DAMAGE_ON_SCREEN, Cookie_IsShowDamage(client, MessageSource_Screen));
 
     menu.ExitBackButton = true;
     menu.Display(client, MENU_TIME_FOREVER);
@@ -24,7 +24,7 @@ public void Menu_Settings(int client) {
 
 public int MenuHandler_Settings(Menu menu, MenuAction action, int param1, int param2) {
     if (action == MenuAction_Select) {
-        char info[ITEM_INFO_MAX_SIZE];
+        char info[ITEM_SIZE];
 
         menu.GetItem(param2, info, sizeof(info));
 
@@ -46,10 +46,11 @@ public int MenuHandler_Settings(Menu menu, MenuAction action, int param1, int pa
     return 0;
 }
 
-void Menu_AddBoolItem(Menu menu, char[] phrase, int client, bool enabled) {
-    char buffer[TEXT_BUFFER_MAX_SIZE];
+void Menu_AddShowDamageItem(Menu menu, int client, const char[] phrase, bool enabled) {
+    char item[ITEM_SIZE];
 
-    Format(buffer, sizeof(buffer), "%T", phrase, client, enabled ? "Enabled" : "Disabled", client);
+    SetGlobalTransTarget(client);
+    Format(item, sizeof(item), "%t", phrase, enabled ? ITEM_ENABLED : ITEM_DISABLED);
 
-    menu.AddItem(phrase, buffer);
+    menu.AddItem(phrase, item);
 }

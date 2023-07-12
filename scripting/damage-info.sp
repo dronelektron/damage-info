@@ -36,10 +36,6 @@ public void OnPluginStart() {
     AutoExecConfig(AUTO_CREATE_YES, "damage-info");
 }
 
-public void OnClientConnected(int client) {
-    Cookie_Reset(client);
-}
-
 public void OnClientCookiesCached(int client) {
     Cookie_Load(client);
 }
