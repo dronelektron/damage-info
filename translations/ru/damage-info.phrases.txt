@@ -2,7 +2,7 @@
 {
     "Damage info in chat"
     {
-        "ru"    "{1}{2}{white}{3}{default}, {4} {5} хп, {6} м"
+        "ru"    "{1}{2}FFFFFF{3}, {4} {5} хп, {6} м"
     }
 
     "Damage info on screen"
@@ -17,17 +17,17 @@
 
     "Ally"
     {
-        "ru"    "{yellow}(Свой) "
+        "ru"    "FFFF00(Свой) "
     }
 
     "Target"
     {
-        "ru"    "{burlywood}Цель: "
+        "ru"    "DEB887Цель: "
     }
 
     "Attacker"
     {
-        "ru"    "{lightcoral}Атакующий: "
+        "ru"    "F08080Атакующий: "
     }
 
     "Body"

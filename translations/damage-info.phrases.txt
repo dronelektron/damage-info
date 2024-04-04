@@ -3,7 +3,7 @@
     "Damage info in chat"
     {
         "#format"   "{1:t},{2:t},{3:N},{4:t},{5:d},{6:.2f}"
-        "en"    "{1}{2}{white}{3}{default}, {4} {5} hp, {6} m"
+        "en"    "{1}{2}FFFFFF{3}, {4} {5} hp, {6} m"
     }
 
     "Damage info on screen"
@@ -19,17 +19,17 @@
 
     "Ally"
     {
-        "en"    "{yellow}(Ally) "
+        "en"    "FFFF00(Ally) "
     }
 
     "Target"
     {
-        "en"    "{burlywood}Target: "
+        "en"    "DEB887Target: "
     }
 
     "Attacker"
     {
-        "en"    "{lightcoral}Attacker: "
+        "en"    "F08080Attacker: "
     }
 
     "Body"

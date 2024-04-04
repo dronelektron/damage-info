@@ -1,11 +1,10 @@
 #include <sourcemod>
 #include <clientprefs>
 
-#include "morecolors"
-
 #include "di/cookie"
 #include "di/math"
 #include "di/menu"
+#include "di/message"
 #include "di/use-case"
 
 #include "modules/console-variable.sp"
