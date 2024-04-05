@@ -22,7 +22,7 @@ static char g_hitGroups[][] = {
 void Message_DamageInfoInChat(int client1, int client2, int targetOrAttacker, int hitGroup, int damage, float distance) {
     int enemyOrAlly = UseCase_GetEnemyOrAlly(client1, client2);
 
-    CPrintToChat(client1, "%t", "Damage info in chat",
+    PrintToChat(client1, COLOR_DEFAULT ... "%t", "Damage info in chat",
         g_enemyOrAlly[enemyOrAlly],
         g_targetOrAttacker[targetOrAttacker],
         client2,

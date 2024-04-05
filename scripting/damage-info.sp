@@ -1,12 +1,11 @@
 #include <sourcemod>
 #include <clientprefs>
 
-#include "morecolors"
-
-#include "di/cookie"
-#include "di/math"
-#include "di/menu"
-#include "di/use-case"
+#include "damage-info/cookie"
+#include "damage-info/math"
+#include "damage-info/menu"
+#include "damage-info/message"
+#include "damage-info/use-case"
 
 #include "modules/console-variable.sp"
 #include "modules/cookie.sp"
@@ -22,7 +21,7 @@ public Plugin myinfo = {
     name = "Damage info",
     author = "Dron-elektron",
     description = "Shows damage information in chat and on screen",
-    version = "1.1.2",
+    version = "1.1.3",
     url = "https://github.com/dronelektron/damage-info"
 };
 
