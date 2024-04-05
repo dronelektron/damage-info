@@ -1,7 +1,7 @@
-#if defined _di_menu_included
+#if defined _damage_info_menu_included
  #endinput
 #endif
-#define _di_menu_included
+#define _damage_info_menu_included
 
 #define INFO_SIZE 32
 #define ITEM_SIZE 256

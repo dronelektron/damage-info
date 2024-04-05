@@ -1,11 +1,11 @@
 #include <sourcemod>
 #include <clientprefs>
 
-#include "di/cookie"
-#include "di/math"
-#include "di/menu"
-#include "di/message"
-#include "di/use-case"
+#include "damage-info/cookie"
+#include "damage-info/math"
+#include "damage-info/menu"
+#include "damage-info/message"
+#include "damage-info/use-case"
 
 #include "modules/console-variable.sp"
 #include "modules/cookie.sp"

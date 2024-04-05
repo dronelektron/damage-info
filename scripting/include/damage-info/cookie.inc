@@ -1,7 +1,7 @@
-#if defined _di_cookie_included
+#if defined _damage_info_cookie_included
  #endinput
 #endif
-#define _di_cookie_included
+#define _damage_info_cookie_included
 
 #define NULL_CHARACTER '\0'
 
